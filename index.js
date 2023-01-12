@@ -11,3 +11,9 @@ let person = {
     }
 }
 console.log(person);
+// dot notation
+person.name = 'Moses';
+console.log(person.name);
+// bracket notation
+person['age'] = 25;
+console.log(person.age);
