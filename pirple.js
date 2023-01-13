@@ -71,7 +71,7 @@ function PersonConstructor(name,age,height,male){
 
     };
 };
-let profile = new PersonConstructor('Alukwes',24,`5' 6"`,true);
+let profile = new PersonConstructor('Nielsen',24,`5' 6"`,true);
 console.log(profile);
 profile.showMessage();
 let person = new PersonConstructor('Maria', 20, `5' 5"`,false);
@@ -88,5 +88,5 @@ console.log(couple[0]);
 let single = couple[0];
 // accessing a function inside an object created in the array.
 single.showMessage();
-
-
+let coupleLength = couple.length;
+console.log(coupleLength);
