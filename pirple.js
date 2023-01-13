@@ -90,3 +90,8 @@ let single = couple[0];
 single.showMessage();
 let coupleLength = couple.length;
 console.log(coupleLength);
+let clubsLength = clubs.length;
+let clubsSliced = clubs.slice(clubsLength-1);
+console.log(clubsSliced);
+console.log(clubsLength);
+console.log(clubs);
