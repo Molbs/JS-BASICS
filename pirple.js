@@ -22,7 +22,7 @@ let content = 'has content';
 let noContent ='';
 let noAssignedVariable;
 let isFalse = false;
-let isNotANumber = isNaN;
+let isNotANumber = isNaN(content);
 // console.log(Boolean(content));
 // console.log(Boolean(noContent));
 if (isNotANumber){
@@ -95,3 +95,68 @@ let clubsSliced = clubs.slice(clubsLength-1);
 console.log(clubsSliced);
 console.log(clubsLength);
 console.log(clubs);
+// Variables and constants
+let name = "Moses Nielsen";
+function greet(names){
+    console.log(`Hello ${names} welcome onboard`)
+}
+greet(name);
+let count = 10;
+let increase = 2;
+function counter(){
+    count +=increase;
+    console.log(count);
+}
+counter();
+ function age(){
+    let boy = true
+    if (boy){
+        console.log("This is a boy")
+        boy = false
+    }
+    else{
+    console.log("This is a boy is not true")
+    boy = true
+    }
+ }
+ age();
+//  reassigning arrays
+  let myArray = [1, 2, 3, 4];
+  myArray = [4, 5, 6, 7];
+  console.log(myArray);
+//   if statements and operators
+const sayHi = true;
+if (sayHi){
+    console.log("Hello")
+}
+const bankBalance = 1200;
+const cost =  1000;
+const tax = 300;
+if(bankBalance>= (cost+tax)){
+    console.log("generating receipt")
+}
+else{
+    console.log("Low Balance, please recharge")
+}
+// logical operators
+// && - AND || - OR ! - NOT
+const balance = 1000;
+const pay = 500;
+const spend = true;
+
+if (balance >= pay && spend){
+    console.log("ready for payment!!!")
+}
+
+// using AND, OR together
+const account = 12000;
+const item = 13000;
+const credit = true;
+const creditLimit = 500;
+if(account >= item || credit && (creditLimit >= item-account)){
+    console.log("Approved");
+}
+else{
+    console.log("low amount of money");
+}
+// Functions
