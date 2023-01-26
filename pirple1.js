@@ -55,3 +55,65 @@ function changeAge(myObj){
 console.log(myInfo);
 changeAge(myInfo);
 console.log(myInfo);
+
+// Nested Functions
+//  example 1
+function additionMultiply(num1,num2){
+    function addition(num1,num2){
+        return num1+num2;
+    }
+    return addition(num1,num2)* addition(num1,num2);
+}
+
+console.log(additionMultiply(3,5));
+// you can not call a function nested within another function
+// nested functions are scope defined i.e items can not be accessed outside the function scope.
+function personalInfo(fName,LName,age){
+    function nameFormat(arg1,arg2){
+        return `${arg1} ${arg2}`
+    }
+    return `${nameFormat(fName, LName)} is ${age} year(s) old`;
+}
+console.log(personalInfo('Moses', 'Nielsen', 25));
+// Object in nested function example 
+function personInfo(fName,Lname,age){
+    function nameAdd(arg1,arg2){
+        return arg1 + " " + arg2;
+    }
+    function objData(fullName,age){
+        const person = {
+            name: fullName,
+            age: age
+        }
+        return person;
+    }
+    return objData(nameAdd(fName,Lname),age)
+}
+console.log(personInfo('Nielsen','Moses',24));
+// Advanced Functions
+const multiply = (num1,num2) => {
+    return num1*num2;
+};
+console.log(multiply(4,5));
+// mapping(iteration)
+const users = [
+    {name:'moses',age:24},
+    {name:'nielsen', age:25},
+    {name:'alukwe', age:36}
+];
+const userName = users.map( (user) =>{
+    return user.name;
+})
+console.log(userName);
+// end of mapping
+// a function for mapping
+const mapUser = (myArray) =>{
+    const userName = myArray.map( (user) =>{
+        return user.name;
+    })
+    return userName
+}
+console.log(mapUser(users));
+// skip bracket when one expression is expected example
+const multiplies = (num1,num2) => num1*num2;
+console.log(multiplies(4,5));
