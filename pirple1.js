@@ -140,7 +140,7 @@ const doubleNumbers = (num) => {
     });
     return numberContainer
 }
-console.log(...doubleNumbers(numbers));
+console.log(doubleNumbers(numbers));
 
 // assigning default values 
 const numbMultiplier = (num1, numb2) => {
@@ -203,3 +203,49 @@ console.log(bankAccount);
 console.log(purchase(700));
 console.log(bankAccount);
 console.log(purchase(700));
+
+// undefined parameters 
+function logAllArguments(x,y,z) {
+    console.log(arguments);
+}
+logAllArguments(1,2,3);
+
+// slicing extra arguments in parameter
+function logArguments(x){
+    const args = Array.prototype.slice.call(arguments,logArguments.length);
+    console.log(args.sort());
+}
+logArguments(5,4,7,8,9);
+// alternative ES6 version
+function logArgs(x,...num){
+    console.log(num.sort());
+}
+logArgs(10,13,67,8,90);
+// alternative
+const logArg = (x,...num) => console.log(num.sort());
+logArg(2,3,5,67,8);
+
+// mapping undefined
+const multi = (num,...answer) => answer.map((n) => num * n);
+console.log(multi(6, 10,12,23,45));
+// object instantiation using constructor
+function Dog(color,breed,age=5){
+    const that= this;
+    that.color = color;
+    that.breed = breed;
+    that.age = age;
+}
+function Cat(color,age){
+    this.color = color;
+    this.age = age;
+    // setInterval syntax setInterval(function (){code},interval time, e.g 1200(1.2 seconds)); or SetInterval(() => {code},interval)
+    // setInterval(() => {
+    //     this.age += 1;
+    //     console.log(this)
+    // },5000)
+}
+
+const bosco = new Dog('black', 'German Shephard', 3);
+const paloma = new Cat('white', 4);
+console.log(bosco);
+console.log(paloma);
