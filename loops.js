@@ -100,3 +100,75 @@ function purchasePower(){
         console.log("sorry, low balance :(");
     };
 }
+// for loops - repeats until a specified condition evaluates to false
+/*
+for(initial expression;condition; increment expression){
+    statement
+}
+*/
+let indice = 0;
+for(indice;indice<10;indice += 2){
+    console.log(indice);
+}
+const iceCream = ["vanilla","Chocolate","StrawBerry","Cocktail"];
+
+for(let items=0; items < iceCream.length; items+=2){
+    console.log(iceCream[items]);
+}
+
+// inside a function
+const iceList = (arr) =>{
+    for(let item =0;item<arr.length;item+=1){
+        console.table(arr[item]);
+    }
+}
+iceList(iceCream);
+for(let number = 1;number<=100;number+=1){
+    if(number%3===0 && number%5===0){
+        console.log("fizzBuzz");
+    }
+    else if(number%3===0){
+        console.log("fizz");
+    }
+    else if(number%5===0){
+        console.log("Buzz");
+
+    }
+    else{
+        console.log(number)
+    };
+};
+// continue function skips a certain statement
+
+for(let number = 1;number<=100;number+=1){
+    if(number%3===0 && number%5===0){
+        continue;
+    }
+    else if(number%3===0){
+        continue
+    }
+    else if(number%5===0){
+        continue
+
+    }
+    else{
+        console.log(number)
+    };
+};
+// inner loops
+// for(let i = 0;i<4;i+=1){
+//     console.log("loop #" + i);
+//     for(let a = 0; a<3;a+=1){
+//         console.log("Inner loop #" + a)
+//     }
+// }
+outerLoop:
+for(let i = 0;i<5;i+=1){
+    console.log("loop #" + i);
+    for(let a = 0; a<3;a+=1){
+        console.log("Inner loop #" + a);
+        if(a===2){
+            break outerLoop;
+        }
+    }
+}

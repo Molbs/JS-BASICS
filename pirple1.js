@@ -109,7 +109,8 @@ const clubs = [
 const userName = users.map( (user) =>{
     return user.name;
 })
-console.log(userName);
+// console.table used to display tabular information
+console.table(userName);
 // end of mapping
 // a function for mapping
 const mapUser = (myArray) =>{
