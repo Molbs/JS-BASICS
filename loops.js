@@ -172,3 +172,106 @@ for(let i = 0;i<5;i+=1){
         }
     }
 }
+// timer function
+// const timer = (value) =>{
+//     setTimeout(function(){
+//         console.log(value);
+//     },value*1000);
+// }
+// for(let sec = 0;sec < 10;sec+=1){
+//     timer(sec);
+// }
+
+// alternative
+// for(let i = 0; i<10;i++){
+//     setTimeout(()=>{
+//         console.log(i);
+//     },i*1000);
+// }
+// for(let i = 0;i<10;i++){
+//     setTimeout(function(){
+//         console.log(i);
+//     },i*1000);
+// }
+// For In, For Each, For Of Loops
+/*
+looping through an object's properties in an arbitrary order
+
+ */
+const users= {
+    1:"Nielsen",
+    2:"maria",
+    3:"nats",
+    4:"Junior"
+}
+for(item in users){
+    if(users[item]==="Nielsen"){
+        console.log(`${users[item]} is at index ${item}`)
+    }
+
+}
+// functional operation
+const usersFunction = (obj,userName) =>{
+    for(namer in obj){
+        if(obj[namer] === userName){
+            console.log(`${obj[namer]} is at position ${namer}`);
+        }
+    }
+}
+usersFunction(users,"junior");
+usersFunction(users,"Junior");
+/* 
+For Each loop
+calls a function for each element in an array
+*/
+let sum =0;
+const numbers = [12,34,56,78];
+let sums =0
+
+numbers.forEach((d) =>{
+    sum +=d;
+})
+console.log(sum);
+// functional operation
+const sumFunction = (item) =>{
+    item.forEach((i) =>{
+        sums += i
+        
+    })
+    console.log(sums)
+};
+sumFunction(numbers);
+/* 
+For Of Loop 
+used to loop over an iterable object(array, strings,maps,sets)
+*/
+const letterUpper = text =>{
+    let capitalized = "";
+    for(letter of text){
+        
+        capitalized += letter.toUpperCase()
+    }
+    console.log(`Your CAPITALIZED Text is: ${capitalized}`)
+}
+letterUpper("lion");
+// number multiplier
+const numberArray = [12,34,56,67,70];
+const numberIncrease = (arr,inc) =>{
+    for(let num of arr){
+        num *=inc;
+        console.log(num);
+    }
+}
+numberIncrease(numbers,5);
+// set
+// is a collection of items that are unique
+// new Set([it])
+const clients = ["Moses","Isaac", "Mary", "Nielsen", "Moses", "Mary"];
+const unique = new Set(clients);
+console.log(unique)
+for(const n of unique){
+    console.log(n)
+};
+for(const n of clients){
+    console.log(n)
+};
