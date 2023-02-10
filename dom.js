@@ -29,6 +29,8 @@ const mySpan = myDiv.getElementsByTagName("span");
 for(const span of mySpan){
    span.innerHTML = "Hello"
 }
+const myStyle =document.querySelector("span");
+myStyle.style.color = "#24360e"
 const total = document.getElementById("total");
 total.innerHTML = mySpan.length
 
