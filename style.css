@@ -1,0 +1,9 @@
+.background{
+    background: maroon;
+    border: 1px solid black;
+    color: white;
+}
+.green{
+   background: green; 
+   color: white;
+}

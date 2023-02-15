@@ -88,13 +88,21 @@ for(let i = 0;i<myFavePlayers.length;i++){
 /*newUl.appendChild(newLi)*/
 // append list to the dom 
 newEle.appendChild(newUl);
-console.log(newEle)
-console.log(newEle)
+console.log(newEle);
+console.log(newEle);
 // append the element to the dom
-createdDiv.appendChild(newEle)
+createdDiv.appendChild(newEle);
 // removing an element
 // createdDiv.removeChild(newEle)
-const deletePlayer = newUl.childNodes[newUl[4]];
+console.log(newUl.childNodes.length)
+const deletePlayer = newUl.childNodes[4];
 if(deletePlayer.innerText === "sancho"){
+    
     newUl.removeChild(deletePlayer);
+}
+// const player = "Bruno"
+for(prop of newUl.childNodes){
+    if(prop.innerHTML === "Degea"/*player*/){
+        newUl.removeChild(prop);
+    }
 }
