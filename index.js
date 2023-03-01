@@ -46,3 +46,4 @@ let num=square(2);
 console.log(num)
 // or
 console.log(square(4));
+

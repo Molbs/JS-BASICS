@@ -113,10 +113,61 @@ function greenFunc(e){
 //      } 
 
 // using Child nodes
-console.log(listItems.childNodes)
+/*console.log(listItems.childNodes)
 const tester2 = document.getElementById("background2");
 const allLis = tester2.querySelectorAll("li");
 console.log(allLis)
 for(const prop of allLis){
     console.log(this)
+} */
+
+// defaults
+// preventing a user click on a link...
+const link = document.getElementById("link");
+const tag = link.querySelector("a");
+tag.addEventListener("click"/*right-click*/, function(e){
+    e.preventDefault();
+    alert("Web page under maintenance")
+})
+
+// adding a submitted value to the list...
+const myForm = document.getElementById("myForm");
+myForm.addEventListener("submit", addList);
+
+function addList (e){
+    e.preventDefault();
+    const myInput = document.getElementById("myInput").value;
+    const newLi = document.createElement('li');
+    newLi.innerText = myInput;
+    if(myInput !== "" ){
+        listItems.appendChild(newLi);
+        myForm.reset();
+    }
+    else{
+        alert("can not add an empty list")
+    }
+    
 }
+document.addEventListener("keydown", function(e){
+    // console.log(e.keyCode);
+} );
+
+// adding "typing when a user presses a key and remove it when no key is being pressed"
+const div3 = document.getElementById("div3");
+const para = div3.querySelector("p");
+const textArea = div3.querySelector("textarea")
+const paraText= "typing..."
+let timer;
+let count = 0;
+textArea.addEventListener("keydown", addText);
+textArea.addEventListener("keyup", removeText);
+
+function addText (e){
+    para.innerText = paraText;
+}
+ function removeText(e){
+    clearTimeout(timer);
+    timer = setTimeout(() =>{
+        para.innerText = "";
+    }, 1000)
+ }

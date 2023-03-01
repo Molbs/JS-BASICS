@@ -160,3 +160,13 @@ else{
     console.log("low amount of money");
 }
 // Functions
+const personal = {
+    name: "nielsen",
+    age: 24,
+    city: "nairobi"
+}
+console.log(personal)
+for(let key in personal){
+    console.log(`${key}: ${personal[key]}`);
+    
+};
