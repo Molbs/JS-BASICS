@@ -28,7 +28,7 @@ function myFunction() {
 }
 let adder = 0;
 button.addEventListener("focus",() =>{
-    button.style.backgroundColor="red"
+    button.style.backgroundColor="black"
     adder +=1;
     console.log(adder);
     button.style.borderRadius="5px"
