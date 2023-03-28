@@ -65,7 +65,7 @@ function Person(name, age) {
     age: 25,
     state: "Nairobi",
     sayName: function (){
-        console.log(`My name is ${this.name} and i am ${this.age} years old`);
+        console.log(`My name is ${this.name} and I am ${this.age} years old`);
     }
   }
 
@@ -76,3 +76,66 @@ person3.sayName();
 const person4 = Object.create(person3);
 console.log(person4.hasOwnProperty('name'));
 console.log(person.hasOwnProperty('name'));
+
+// object constructors
+
+// function Animals(name, age, breed){
+//   const obj ={};
+//   obj.name = name;
+//   obj.age = age;
+//   obj.breed = breed;
+//   return obj;
+// }
+// console.log(Animals("Jack", 5, "German Shephard"));
+function Animal(name, age, breed){
+  this.name = name;
+  this.age = age;
+  this.breed = breed;
+  // this.sayBreed= function(){
+  //   console.log(`${this.name}'s is ${this.breed}`);
+  // }
+}
+Animal.prototype.sayBreed = function(){
+  console.log(`${this.name}'s is ${this.breed}`);
+}
+const dog1 = new Animal("Simba", 4, "German Shephard");
+/* dog1 inherits from prototype Animal, which inherits from prototype Object*/
+const dog2 = new Animal("Spark", 3, "Labrador");
+console.log(dog1.name);
+dog1.sayBreed();
+console.log(Animal.prototype);
+// Object inheritance
+
+/* Inherits from Object Animal */
+function Pet(name, age, breed){
+  Animal.call(this, name, age)
+  this.breed = breed
+}
+Animal.prototype.makeNoise= function(){
+  console.log(`generic animal sound`);
+}
+// clone Animal prototype method
+Pet.prototype = Object.create(Animal.prototype);
+// instantiate Pet.prototype constructor to Pet Object
+Pet.prototype.constructor = Pet
+console.log(Pet.prototype);
+const barky = new Pet("barky", 2, "Chihuahua");
+console.log(barky.name);
+barky.makeNoise();
+barky.sayBreed();
+
+function Cat (name, age, coloration){
+  Pet.call(this,name, age);
+    this.color = coloration;
+}
+Cat.prototype = Object.create(Animal.prototype);
+Cat.prototype.constructor = Cat;
+Cat.prototype.scratchPost =  function (){
+  console.log("Cat has scratched the Post")
+}
+
+const kitty = new Cat("Kitty", 2, "tabby");
+kitty.makeNoise();
+kitty.scratchPost();
+
+// console.log(Cat instanceof Pet);
