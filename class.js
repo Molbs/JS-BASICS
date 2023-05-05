@@ -31,151 +31,33 @@
 
 // const bob = new Person("Moses", 24)
 // console.log(bob.name);
-// class Person{
-//     constructor(name, age){
-//         this.name = name;
-//         this.age = age;
-//     }
-//     // no need to add the method to the prototype, classes automatically do that
-//     greetings() {
-//         console.log(`Hello ${this.name}`);
-//     }
-//     greetTest(){
-//         return 'My class is Person'
-//     }
-//     static sayHey(){
-//         console.log("Hello!");
-//     }
-// }
-// // reassigning a method or changing a method
-
-// Person.prototype.greetings = function (){
-//     console.log("I am changed");
-// }
-// const bob = new Person("Moses", 24)
-// console.log(bob.name);
-// bob.greetings();
-
-// // Class Inheritance
-// // super keyword calls functions on an object's parent class
-// class Employee extends Person{
-//     constructor(name,age, position){
-//         super(name, age);
-//         this.position = position;
-//     }
-//     testGreetings(){
-//         super.greetings();
-//     }
-//     sayGreet(){
-//         const parentString = super.greetTest();
-//         console.log(`${this.name} thinks ${parentString}`);
-//     }
-// }
-// const barb = new Employee("Barb", 25, "developer");
-
-// console.log(barb);
-// barb.testGreetings();
-// barb.greetings();
-// barb.sayGreet();
-
-// class Customer extends Person{
-//     constructor({name = "Customer", age = "n/a", contactMethod}){
-//         super(name, age);
-//         this. contactMethod =  contactMethod;
-//         this.accountCredit =  null;
-//     }
-//     addCredit(amount){
-//         this.accountCredit += amount;
-//     }
-//     reduceCredit(amount){
-//         this.accountCredit -= amount;
-//     }
-//     // static method can only be called on the class itself and not on the instantiated object
-//     static sayHi(){
-//         console.log("Hi! :D");
-//     }
-//     static sayCustomerNames(c1, c2){
-//         console.log(`${c1.name}, ${c2.name}`);
-//     }
-//     // spreads the instances
-//     static sayCustomerName(...customers){
-//         return customers
-//     }
-//     static sayCustomer(...customers){
-//         for( const c of customers){
-//             console.log(c.name);
-//         }
-//     }
-//     static transferCredit(c1, c2, amt){
-//         const amount = amt;
-//         if(c1.accountCredit < amt){
-//             console.log("Not enough credit to complete transfer!!");
-//         }
-//         else{
-//         c2.accountCredit += amount;
-//         c1.accountCredit -= amount;
-//         }
-//     }
-
-
-// }
-
-// const customer1 =  new Customer({name: "Moses Nielsen", contactMethod:"Email"});
-// const customer2 =new Customer({name: "Mary Oramisi", contactMethod: "mobile"});
-// const customer3 =new Customer({name: "Nats Nielsen", contactMethod: "icloud"})
-// console.log(customer1);
-// customer1.addCredit(100);
-// console.log(customer1.accountCredit);
-// customer1.reduceCredit(30);
-// console.log(customer1.accountCredit);
-// console.log(customer2.accountCredit);
-// Customer.sayHi();
-// // inherited from class Person
-// Customer.sayCustomerNames(customer1,customer2);
-// console.log(Customer.sayCustomerName(customer1, customer2, customer3));
-// Customer.sayCustomer(customer1,customer2, customer3);
-// customer2.addCredit(20);
-// console.log(customer1.accountCredit);
-// Customer.transferCredit(customer1, customer2, 20)
-// console.log(customer2.accountCredit);
-// console.log(customer1.accountCredit);
-class Family{
-    constructor(lastName){
-        this.name = lastName;
+class Person{
+    constructor(name, age){
+        this.name = name;
+        this.age = age;
     }
-    sayName(){
-        console.log(`We are The ${this.name}s`);
+    // no need to add the method to the prototype, classes automatically do that
+    greetings() {
+        console.log(`Hello ${this.name}`);
     }
 }
+// reassigning a method or changing a method
 
-class Parent extends Family{
-    constructor(name, firstName){
-    super(name);
-    this.firstName = firstName;
+Person.prototype.greetings = function (){
+    console.log("I am changed"); 
 }
-}
+const bob = new Person("Moses", 24)
+console.log(bob.name);
+bob.greetings();
 
-class Child extends Family{
-    constructor(lastName, firstName){
-        super(lastName);
-        this.firstName = firstName
+// Class Inheritance
+class Employee extends Person{
+    constructor(name,age, position){
+        super(name, age);
+        this.position = position;
     }
 }
+const barb = new Employee("Barb", 25, "developer");
 
-const dad = new Parent("Nielsen", "Moses");
-const mom = new Parent("Nielsen", "Maria");
-const nats = new Child("Nielsen", "Nats")
-dad.sayName();
-console.log(dad);
-
-class FamilyMember{
-    constructor(lastName, firstName, relationship){
-    this.lastName = lastName;
-    this.firstName = firstName;
-    this.relationship = relationship;
-    }
-}
-var array = [4, 3, 2, 1, 0];
-for (e in array) {
-console.log(e);
-} 
+console.log(barb);
+barb.greetings();
