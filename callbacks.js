@@ -152,6 +152,57 @@ function numCruncher1(num, cb) {
 // crunchNumbers(5, 10, numCruncher1, numCruncher2, totalSum);
 
 // Promises
+/*
+  - "A Promise is a proxy for a value not necessarily known
+  when the promise is created" - Mozilla Developer Network
+  - Promises (similar to callbacks) are used for async computations
+  - Think of a promise as representing as a value that may be available
+  now, later, or never
+  - Can associate a handler with an async action
+  - A promise exists in three states:
+    - Pending: initial state, not fulfilled
+    - Fulfilled: OK! Got it
+    - Rejected: failed
+*/ 
 
+  const testPromise = new Promise((resolve, reject) =>{
+    if(Math.random() > 0.5){
+      reject("promise no good! rejected")
+    }
+    setTimeout(() =>{
+      resolve("Promise Ok!")
+    }, 1000);
+  });
 
-  
+  testPromise.then((resolveMessage) =>{
+    console.log(`Looks like: ${resolveMessage}`);
+  }).then(() =>{
+    console.log("i should run after the promise is resolved");
+  }).catch((rejectMessage) =>{
+    console.log(`Error: ${rejectMessage}`);
+  });
+
+  function numAdder (num1, num2){
+    return new Promise((resolve, reject) =>{
+      const addedNum = num1 + num2;
+      setTimeout(() =>{
+        resolve(addedNum)
+      },1000);
+    });
+  }
+
+  function numSquarer(num){
+    return new Promise((resolve, reject) =>{
+    setTimeout(() =>{
+        resolve(num * num)
+      },800);
+    });
+  }
+ numAdder(12, 13).then((data) => {
+  console.log(`Total is: ${data}`);
+ });
+ numAdder(12, 13).then((data) => {
+  return numSquarer(data);
+ }).then((moreData) => {
+  console.log(`Square is: ${moreData}`);
+ });
