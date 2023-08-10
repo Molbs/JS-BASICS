@@ -7,7 +7,7 @@ let person = {
     address:{
         city:'Nairobi',
         po_Box: '3764_citySquare',
-        postal_code:0200
+        postal_code: 200
     }
 };
 console.log(person);
@@ -36,7 +36,7 @@ console.log(clubs[0]);
 function greet(name){
     console.log(`Hello ${name}`);
 }
-let user = prompt('What is your name: ')
+// let user = prompt('What is your name: ')
 greet(user);
 // calculate a value
 function square(number){

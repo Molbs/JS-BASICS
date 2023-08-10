@@ -184,25 +184,65 @@ function numCruncher1(num, cb) {
 
   function numAdder (num1, num2){
     return new Promise((resolve, reject) =>{
-      const addedNum = num1 + num2;
+      // if(Math.random() > 0.5) {
+      //   reject("Oops, something's not right")
+      // }
+      // const addedNum = num1 + num2;
       setTimeout(() =>{
-        resolve(addedNum)
+        resolve(num1 + num2)
       },1000);
     });
   }
 
   function numSquarer(num){
     return new Promise((resolve, reject) =>{
+      // if(Math.random() > 0.5) {
+      //   reject("Oops, something's not right")
+      // }
     setTimeout(() =>{
         resolve(num * num)
       },800);
     });
   }
  numAdder(12, 13).then((data) => {
-  console.log(`Total is: ${data}`);
+  console.log(`Total is: ${data}`)
  });
  numAdder(12, 13).then((data) => {
   return numSquarer(data);
  }).then((moreData) => {
-  console.log(`Square is: ${moreData}`);
- });
+  console.log(`Square is: ${moreData}`) }).catch((errorMessage) =>{
+    console.log(errorMessage);
+
+  });
+Promise.resolve("a string sentence").then((data) => {
+  console.log(data);
+});
+
+function alwaysResolve(){
+  return Promise.resolve('I love resolving :D');
+}
+
+alwaysResolve().then(data => console.log(data));
+// const list = [];
+// const number = [100, 120,35];
+// list.push(number)
+// const lists = []
+
+const prom = Promise.resolve([12, 15, 34]);
+prom.then(data=>
+  data.map(num => num *10)).then(transformedData => console.log(transformedData))
+
+const anotherProm = Promise.resolve({text: "resolved :D",
+name: 'Moses'});
+anotherProm.then(data => console.log(`${data.name}' issue is ${data.text}`));
+
+// rejected Promises
+
+// Promise.reject().then(() => console.log('Okay')).catch(() => console.log("Caught rejected promise"));
+Promise.resolve().then(res => {
+  // console.log('Not rejected');
+  return Promise.reject('Rejected inner promise');
+},
+err => { 
+  console.log('rejected');
+}).catch(data => console.log(data));
