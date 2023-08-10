@@ -239,10 +239,95 @@ anotherProm.then(data => console.log(`${data.name}' issue is ${data.text}`));
 // rejected Promises
 
 // Promise.reject().then(() => console.log('Okay')).catch(() => console.log("Caught rejected promise"));
-Promise.resolve().then(res => {
-  // console.log('Not rejected');
-  return Promise.reject('Rejected inner promise');
+Promise.reject().then(res => {
+  console.log('Not rejected');
 },
 err => { 
   console.log('rejected');
 }).catch(data => console.log(data));
+
+Promise.resolve()
+  .then(
+    res => {
+      return Promise.reject();
+    },
+    err => {
+      console.log("rejected");
+    }
+  ).then(
+    res => {
+      console.log("cool")
+    },
+    err => {
+      console.log("Inner promise rejected");
+    }
+  ).catch(data => console.log(data));
+
+const datas = {
+  message: "Success!",
+  number: 30
+};
+  function timeLogger(message, time){
+    return new Promise((resolve, reject) => {
+      setTimeout(()=>{
+        resolve(message)
+    }, time);
+    if (typeof message !== "string" || typeof time !== "number"){
+      reject("404 NOT FOUND!");
+    }
+  })
+}
+timeLogger(datas.message, datas.number).then(message => {
+
+console.log(message)
+return timeLogger("second", 60)
+}).then(data => console.log(data)).catch(err => console.log(err));
+
+Promise.resolve("hello")
+.then(string => string + " World").then(data => console.log(data));
+Promise.resolve("Hello").then(string => {
+  return new Promise((resolve, reject) => {
+    setTimeout(()=>{
+      resolve(string + " there");
+    },10)
+
+  });
+}).then(data =>{
+  console.log(data)});
+
+  // promise.all
+
+const P1 = Promise.resolve("A");
+const P2 = Promise.resolve("B");
+const P3 = Promise.resolve("C");
+
+Promise.all([P1, P2, P3]).then(data => console.log(data)).catch(err => console.log(`Error process request: ${err}`));
+
+const person = {
+  name: 'Nielsen',
+  age: 25,
+  id: 687815
+}
+const userName = new Promise((resolve, reject) =>{
+  setTimeout(() =>{
+    resolve({
+      name: person.name,
+      UserId: person.id
+    }, 1000)
+  })
+})
+
+const position = new Promise((resolve, reject) =>{
+  setTimeout(()=>{
+    resolve({
+      name :'software engineer',
+      position: 'lead developer'
+    },300);
+  });
+});
+
+dataBase = [];
+
+Promise.all([userName, position]).then(data => data.map(entry =>entry.name))
+.then(data =>console.log(`Employee of the year: ${data}`)).catch(err =>console.log(err));
+Promise.race([userName,position]).then(data=>console.log(data));
