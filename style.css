@@ -40,3 +40,19 @@
        transform: rotate(1turn);
    }
 }
+.planets{
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.unknown{
+    background: #46B469;
+}
+
+.size{
+    background: teal;
+}
+.sizes{
+    background: #f0f0f0;
+}

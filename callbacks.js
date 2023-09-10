@@ -308,6 +308,16 @@ const person = {
   age: 25,
   id: 687815
 }
+
+
+const position = new Promise((resolve, reject) =>{
+  setTimeout(()=>{
+    resolve({
+      name :'Moses',
+      position: 'lead developer'
+    },300);
+  });
+});
 const userName = new Promise((resolve, reject) =>{
   setTimeout(() =>{
     resolve({
@@ -316,15 +326,6 @@ const userName = new Promise((resolve, reject) =>{
     }, 1000)
   })
 })
-
-const position = new Promise((resolve, reject) =>{
-  setTimeout(()=>{
-    resolve({
-      name :'software engineer',
-      position: 'lead developer'
-    },300);
-  });
-});
 
 dataBase = [];
 

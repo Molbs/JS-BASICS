@@ -3,11 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
   <title>Document</title>
 </head>
 <body>
   <div id="planet">
-    <button> Click for Planet</button>
+    <button id="first"> Click for Planet</button>
+    <button id="second"> Show Multiple Planets</button>
+    <button id="unknown"> show Unpopulated Planets</button>
+    <label for="select">Choose size:</label>
+    <select name="selector" id="select">
+      <option value="none">None</option>
+      <option value="unknown">Unknown</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
   </div>
   <script src="fetch.js"></script>
 </body>
