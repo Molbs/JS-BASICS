@@ -1,9 +1,9 @@
-const getMessage = () => "Hello World";
+const getMessage = () => "Hello World :)";
 document.getElementById('output').innerHTML = getMessage();
-const myArray = [1, 2, 3, 4]
-const myDiv = document.getElementById('main')
+const myArray = [1, 2, 3, 4];
+const myDiv = document.getElementById('main');
 for (const prop of myArray) {
-    myDiv.innerHTML += `<p>${prop}</p>`
+    myDiv.innerHTML += `<p> index ${prop}</p>`;
 }
 
 class Person {
@@ -15,6 +15,8 @@ class Person {
         console.log(`Hello there, my name is ${this.name} and am ${this.age}.It is really nice to meet you :)`);
     }
 }
-const persons = new Person("Nielsen", 24)
- persons.sayGreet()
- console.log("hey There");
+const persons = new Person("Nielsen", 24);
+ persons.sayGreet();
+ console.log("hey There, am great...");
+ const persons1 = new Person("Maria", 19);
+ persons1.sayGreet();

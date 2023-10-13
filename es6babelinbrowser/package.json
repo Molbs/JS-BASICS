@@ -5,13 +5,22 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel src --watch -d js"
+    "build": "babel src --watch -d js",
+    "serve": "http-server dist",
+    "gulp": "gulp default",
+    "lint": "gulp lint"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
     "@babel/preset-env": "^7.23.2",
     "babel-cli": "^6.26.0",
-    "babel-preset-es2015": "^6.24.1"
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-jshint": "^2.1.0",
+    "http-server": "^14.1.1",
+    "jshint": "^2.13.6"
   }
 }
