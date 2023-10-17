@@ -1,10 +1,12 @@
 const path = require("path");
 module.exports = {
+    devtool: "eval-source-map",
     entry: "./src/app.js",
     mode: 'none',
     output: {
         path: path.resolve(__dirname, 'public'),
-        filename: 'app.js'
+        filename: 'app.js',
+        publicPath: '/public/'
     },
     module: {
         rules: [
